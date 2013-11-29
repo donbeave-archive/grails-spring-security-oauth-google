@@ -21,7 +21,8 @@ import org.scribe.model.Token
  * OAuth authentication token for Google users. It's a standard {@link OAuthToken}
  * that returns the Google email address as the principal.
  *
- * @author Mihai CAZACU(cazacugmihai@gmail.com)
+ * @author <a href='mailto:cazacugmihai@gmail.com'>Mihai Cazacu</a>
+ * @author Thierry Nicola
  */
 class GoogleOAuthToken extends OAuthToken {
 
@@ -36,6 +37,10 @@ class GoogleOAuthToken extends OAuthToken {
     }
 
     String getSocialId() {
+        return email
+    }
+    
+    String getScreenName() {
         return email
     }
 
