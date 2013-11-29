@@ -20,3 +20,12 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+// just for test, to avoid oauthService BeanCreationException "No oauth configuration found"
+environments {
+  test {
+    oauth {
+      providers {}
+    }
+  }
+}
