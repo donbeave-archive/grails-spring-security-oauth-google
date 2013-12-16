@@ -1,4 +1,4 @@
-grails-spring-security-oauth-google
+grails-spring-security-oauth-google [![Build Status](https://api.travis-ci.org/donbeave/grails-spring-security-oauth-google.png?branch=master)](https://travis-ci.org/donbeave/grails-spring-security-oauth-google)
 ====================================
 
 Google extension for [Grails Spring Security OAuth][spring-security-oauth-plugin] plugin
