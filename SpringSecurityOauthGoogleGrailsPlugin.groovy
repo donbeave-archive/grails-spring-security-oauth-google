@@ -5,11 +5,8 @@
 */
 class SpringSecurityOauthGoogleGrailsPlugin {
     def version = "0.1"
-    def grailsVersion = "1.2.2 > *"
+    def grailsVersion = "2.0 > *"
     def dependsOn = [springSecurityOauth: '2.0.2 > *']
-    def pluginExcludes = [
-        "grails-app/views/error.gsp"
-    ]
 
     def title = "Google for Spring Security OAuth plugin"
     def author = "Mihai Cazacu, Enrico Comiti, Alexey Zhokhov"
@@ -27,6 +24,7 @@ Integrate [Google|http://www.google.com] to [Spring Security OAuth plugin|http:/
         [name: "Enrico Comiti", email: "enrico@comiti.name"],
         [name: "Alexey Zhokhov", email: "donbeave@gmail.com"]]
 
-    def scm = [url: 'https://github.com/donbeave/grails-spring-security-oauth-google']
+    def issueManagement = [system: 'GITHUB', url: 'https://github.com/donbeave/grails-spring-security-oauth-google/issues']
 
+    def scm = [url: 'https://github.com/donbeave/grails-spring-security-oauth-google']
 }
