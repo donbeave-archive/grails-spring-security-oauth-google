@@ -1,8 +1,10 @@
-package org.scribe.builder.api;
+package org.grails.plugin.springsecurity.oauth;
 
 import org.scribe.exceptions.OAuthException;
 import org.scribe.extractors.AccessTokenExtractor;
 import org.scribe.model.*;
+import org.scribe.builder.*;
+import org.scribe.builder.api.*;
 import org.scribe.oauth.OAuth20ServiceImpl;
 import org.scribe.oauth.OAuthService;
 import org.scribe.utils.OAuthEncoder;

@@ -4,7 +4,7 @@
 * @author <a href='mailto:donbeave@gmail.com'>Alexey Zhokhov</a>
 */
 class SpringSecurityOauthGoogleGrailsPlugin {
-    def version = "0.1"
+    def version = "0.2"
     def grailsVersion = "2.0 > *"
     def dependsOn = [springSecurityOauth: '2.0.2 > *']
 
