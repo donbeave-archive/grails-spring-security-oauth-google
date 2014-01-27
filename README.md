@@ -24,6 +24,8 @@ Add to your Config:
 
 
 ```groovy
+def appName = grails.util.Metadata.current.'app.name'
+def baseURL = grails.serverURL ?: "http://localhost:${System.getProperty('server.port', '8080')}/${appName}"
 oauth {
   // ...
   providers {
