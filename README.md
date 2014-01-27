@@ -12,7 +12,7 @@ Add the following plugin definition to your BuildConfig:
 plugins {
   // ...
   compile ':spring-security-oauth:2.0.2'
-  compile ':spring-security-oauth-google:0.1'
+  compile ':spring-security-oauth-google:0.2'
   // ...
 }
 ```
