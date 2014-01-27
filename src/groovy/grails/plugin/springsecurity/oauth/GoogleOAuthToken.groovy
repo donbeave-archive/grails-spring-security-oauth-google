@@ -26,7 +26,7 @@ import org.scribe.model.Token
  */
 class GoogleOAuthToken extends OAuthToken {
 
-    public  static final String PROVIDER_NAME = "google"
+    public static final String PROVIDER_NAME = 'google'
 
     String email
 
@@ -39,7 +39,7 @@ class GoogleOAuthToken extends OAuthToken {
     String getSocialId() {
         return email
     }
-    
+
     String getScreenName() {
         return email
     }

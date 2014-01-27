@@ -18,7 +18,7 @@ package grails.plugin.springsecurity.oauth
 import grails.converters.JSON
 
 /**
- * @author Mihai CAZACU(cazacugmihai@gmail.com)
+ * @author <a href='mailto:cazacugmihai@gmail.com'>Mihai Cazacu</a>
  */
 class GoogleSpringSecurityOAuthService {
 
@@ -30,17 +30,17 @@ class GoogleSpringSecurityOAuthService {
      *   { "email": "username@gmail.com", "verified_email": true }
      */
     def createAuthToken(accessToken) {
-        def response = oauthService.getGoogleResource(accessToken, "https://www.googleapis.com/oauth2/v1/userinfo")
+        def response = oauthService.getGoogleResource(accessToken, 'https://www.googleapis.com/oauth2/v1/userinfo')
         def user
         try {
             user = JSON.parse(response.body)
         } catch (Exception e) {
             log.error "Error parsing response from Google. Response:\n${response.body}"
-            throw new OAuthLoginException("Error parsing response from Google", e)
+            throw new OAuthLoginException('Error parsing response from Google', e)
         }
-        if (! user?.email) {
+        if (!user?.email) {
             log.error "No user email from Google. Response:\n${response.body}"
-            throw new OAuthLoginException("No user email from Google")
+            throw new OAuthLoginException('No user email from Google')
         }
         return new GoogleOAuthToken(accessToken, user.email)
     }

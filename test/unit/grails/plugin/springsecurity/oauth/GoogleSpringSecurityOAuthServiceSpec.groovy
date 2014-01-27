@@ -15,16 +15,15 @@
  */
 package grails.plugin.springsecurity.oauth
 
-import spock.lang.Specification
-import spock.lang.*
 import org.scribe.model.Token
+import spock.lang.Specification
 
 class GoogleSpringSecurityOAuthServiceSpec extends Specification {
-  
+
     GoogleSpringSecurityOAuthService service
-    
+
     def oauthService
-    
+
     def setup() {
         service = new GoogleSpringSecurityOAuthService()
         oauthService = [:]
@@ -41,7 +40,7 @@ class GoogleSpringSecurityOAuthServiceSpec extends Specification {
             service.oauthService = oauthService
         and:
             try {
-                def token = service.createAuthToken( oauthAccessToken )
+                def token = service.createAuthToken(oauthAccessToken)
             } catch (Throwable throwable) {
                 exception = throwable
             }
@@ -54,7 +53,7 @@ class GoogleSpringSecurityOAuthServiceSpec extends Specification {
             '{}'              |  _
             '{"test"="test"}' |  _
     }
-    
+
     def "should return the correct OAuth token"() {
         given:
             def oauthAccessToken = new Token('token', 'secret', 'rawResponse=rawResponse')
@@ -64,7 +63,7 @@ class GoogleSpringSecurityOAuthServiceSpec extends Specification {
             }
             service.oauthService = oauthService
         when:
-            def token = service.createAuthToken( oauthAccessToken )
+            def token = service.createAuthToken(oauthAccessToken)
         then:
             token.email == 'username@gmail.com'
             token.principal == 'username@gmail.com'
