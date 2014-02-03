@@ -14,4 +14,4 @@ before_script:
     - ./grailsw refresh-dependencies
     - ./grailsw compile
 
-script: ./grailsw test-app unit:
+script: ./grailsw test-app "unit:"
