@@ -25,7 +25,7 @@ Add to your Config:
 
 ```groovy
 def appName = grails.util.Metadata.current.'app.name'
-def baseURL = grails.serverURL ?: "http://localhost:${System.getProperty('server.port', '8080')}/${appName}"
+def baseURL = grails.serverURL ?: "http://127.0.0.1:${System.getProperty('server.port', '8080')}/${appName}"
 oauth {
   // ...
   providers {
@@ -65,4 +65,8 @@ Logged with google?
 <s2o:ifNotLoggedInWith provider="google">no</s2o:ifNotLoggedInWith>
 ```
 
+You can look at [bagage's sample app][sample-app].
+
 [spring-security-oauth-plugin]: https://github.com/enr/grails-spring-security-oauth
+[sample-app]: https://github.com/bagage/grails-google-authentification-example
+
