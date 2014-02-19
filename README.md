@@ -31,6 +31,20 @@ oauth {
   providers {
     // ...
 
+    // Choose only one "google" block
+
+    // for Google OAuth 1.0 DEPRECATED from Google
+    // it uses api class provided from Scribe library
+    google {
+      api = org.scribe.builder.api.GoogleApi
+      key = 'oauth_google_key'
+      secret = 'oauth_google_secret'
+      successUri = '/oauth/google/success'
+      failureUri = '/oauth/google/error'
+      callback = "${baseURL}/oauth/google/callback"
+      scope = 'https://www.googleapis.com/auth/userinfo.email'
+    }
+
     // for Google OAuth 2.0
     google {
       api = org.grails.plugin.springsecurity.oauth.GoogleApi20
