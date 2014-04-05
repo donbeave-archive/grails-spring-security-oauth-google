@@ -18,7 +18,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        compile ':spring-security-oauth:2.0.2'
+        compile ':spring-security-oauth:2.1.0-RC2'
 
         build(':release:3.0.1', ':rest-client-builder:1.0.3') {
             export = false
