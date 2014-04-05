@@ -22,7 +22,7 @@ import grails.util.Environment
  */
 class SpringSecurityOauthGoogleGrailsPlugin {
 
-    def version = '0.2'
+    def version = '0.3'
     def grailsVersion = '2.0 > *'
 
     def title = 'Google for Spring Security OAuth plugin'
