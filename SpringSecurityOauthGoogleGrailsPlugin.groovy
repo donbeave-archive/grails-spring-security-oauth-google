@@ -1,3 +1,5 @@
+import grails.util.Environment
+
 /**
  * @author <a href='mailto:cazacugmihai@gmail.com'>Mihai Cazacu</a>
  * @author <a href='mailto:enrico@comiti.name'>Enrico Comiti</a>
@@ -30,5 +32,22 @@ Integrate [Google|http://www.google.com] to [Spring Security OAuth plugin|http:/
     def scm = [url: 'https://github.com/donbeave/grails-spring-security-oauth-google']
 
     def loadAfter = ['spring-security-oauth']
+
+    def doWithSpring = {
+        loadConfig(application.config)
+    }
+
+    private void loadConfig(ConfigObject config) {
+        def classLoader = new GroovyClassLoader(getClass().classLoader)
+
+        // Note here the order of objects when calling merge - merge OVERWRITES values in the target object
+        // Load default config as a basis
+        def newConfig = new ConfigSlurper(Environment.current.name).parse(
+                classLoader.loadClass('DefaultGoogleOauthConfig')
+        )
+
+        // Now merge DefaultGoogleOauthConfig into the main config
+        config.merge(newConfig)
+    }
 
 }
