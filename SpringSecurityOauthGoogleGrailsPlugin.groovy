@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import grails.util.Environment
 
 /**
@@ -22,8 +23,10 @@ import grails.util.Environment
  */
 class SpringSecurityOauthGoogleGrailsPlugin {
 
-    def version = '0.3'
+    def version = '0.3.1'
     def grailsVersion = '2.0 > *'
+    
+    def loadAfter = ['springSecurityOauth']
 
     def title = 'Google for Spring Security OAuth plugin'
     def author = 'Mihai Cazacu, Enrico Comiti, Alexey Zhokhov'
@@ -46,10 +49,16 @@ Integrate [Google|http://www.google.com] to [Spring Security OAuth plugin|http:/
                            url   : 'https://github.com/donbeave/grails-spring-security-oauth-google/issues']
     def scm = [url: 'https://github.com/donbeave/grails-spring-security-oauth-google']
 
-    def loadAfter = ['spring-security-oauth']
-
     def doWithSpring = {
         loadConfig(application.config)
+    }
+
+    def doWithApplicationContext = { ctx ->
+        def oauthService = ctx.getBean('oauthService')
+
+        if (application.config.oauth.providers.google.offline) {
+            oauthService.services['google'].service.offline = true
+        }
     }
 
     private void loadConfig(ConfigObject config) {
@@ -61,7 +70,9 @@ Integrate [Google|http://www.google.com] to [Spring Security OAuth plugin|http:/
                 classLoader.loadClass('DefaultGoogleOauthConfig')
         )
 
-        // Now merge DefaultGoogleOauthConfig into the main config
+        newConfig.oauth.providers.google.merge(config.oauth.providers.google)
+
+        // Now add DefaultGoogleOauthConfig into the main config
         config.merge(newConfig)
     }
 

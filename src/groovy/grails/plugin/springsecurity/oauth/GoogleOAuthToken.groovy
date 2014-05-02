@@ -23,6 +23,7 @@ import org.scribe.model.Token
  *
  * @author <a href='mailto:cazacugmihai@gmail.com'>Mihai Cazacu</a>
  * @author Thierry Nicola
+ * @author <a href='mailto:donbeave@gmail.com'>Alexey Zhokhov</a>
  */
 class GoogleOAuthToken extends OAuthToken {
 
@@ -37,15 +38,23 @@ class GoogleOAuthToken extends OAuthToken {
     }
 
     String getSocialId() {
-        return email
+        email
     }
 
     String getScreenName() {
-        return email
+        email
+    }
+
+    String getRefreshToken() {
+        accessToken.secret
+    }
+    
+    Date getExpiry() {
+        accessToken.expiry
     }
 
     String getProviderName() {
-        return PROVIDER_NAME
+        PROVIDER_NAME
     }
 
 }

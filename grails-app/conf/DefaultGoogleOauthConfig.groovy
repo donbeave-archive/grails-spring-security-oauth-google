@@ -28,6 +28,7 @@ oauth {
             successUri = '/oauth/google/success'
             failureUri = '/oauth/google/failure'
             callback = "${baseURL}/oauth/google/callback"
+            offline = false
         }
     }
 }
