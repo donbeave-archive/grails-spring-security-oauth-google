@@ -71,6 +71,11 @@ Logged with google?
 
 You can look at [bagage's sample app][sample-app].
 
+Copyright and license
+---------------------
+
+Copyright 2012-2014 Mihai Cazacu, Enrico Comiti and Alexey Zhokhov under the [Apache License, Version 2.0](LICENSE). Supported by [Polusharie][polusharie].
+
+[polusharie]: http://www.polusharie.com
 [spring-security-oauth-plugin]: https://github.com/enr/grails-spring-security-oauth
 [sample-app]: https://github.com/bagage/grails-google-authentification-example
-
