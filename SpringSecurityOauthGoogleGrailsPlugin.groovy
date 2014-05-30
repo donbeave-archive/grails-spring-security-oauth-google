@@ -44,6 +44,7 @@ Integrate [Google|http://www.google.com] to [Spring Security OAuth plugin|http:/
             [name: 'Enrico Comiti', email: 'enrico@comiti.name'],
             [name: 'Alexey Zhokhov', email: 'donbeave@gmail.com']
     ]
+    def organization = [name: 'Polusharie', url: 'http://www.polusharie.com']
 
     def issueManagement = [system: 'GITHUB',
                            url   : 'https://github.com/donbeave/grails-spring-security-oauth-google/issues']
