@@ -14,6 +14,7 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
+        mavenRepo 'https://raw.github.com/fernandezpablo85/scribe-java/mvn-repo'
     }
     dependencies {
     }
