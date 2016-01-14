@@ -20,7 +20,7 @@ plugins {
 Usage
 -----
 
-Add to your Config:
+Add to your Config.groovy:
 
 
 ```groovy
@@ -58,6 +58,25 @@ oauth {
     // ...
   }
 }
+```
+
+Add the following to Config.groovy if you want to use Secured annotations together with Spring security. All references to InterceptUrlMap should be removed.
+
+```groovy
+grails.plugin.springsecurity.securityConfigType = 'Annotation'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        '/':                              ['permitAll'],
+        '/index':                         ['permitAll'],
+        '/index.gsp':                     ['permitAll'],
+        '/login/**':                      ['permitAll'],
+        '/assets/**':                     ['permitAll'],
+        '/**/js/**':                      ['permitAll'],
+        '/**/css/**':                     ['permitAll'],
+        '/**/images/**':                  ['permitAll'],
+        '/**/favicon.ico':                ['permitAll'],
+        '/oauth/**':                      ['permitAll'],
+        '/springSecurityOAuth/**':        ['permitAll']
+]
 ```
 
 In your view you can use the taglib exposed from this plugin and from OAuth plugin to create links and to know if the user is authenticated with a given provider:
