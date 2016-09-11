@@ -21,13 +21,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         compile ':spring-security-oauth:2.1.0-RC4'
-
-        // TODO we need this to compile in Grails 2.4...
-        compile ':hibernate:3.6.10.14', {
-            export = false
-        }
-
-        build(':release:3.0.1', ':rest-client-builder:2.0.1') {
+        build(':release:3.0.1', ':rest-client-builder:2.1.1') {
             export = false
         }
     }

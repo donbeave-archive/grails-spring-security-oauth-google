@@ -30,11 +30,13 @@ class GoogleOAuthToken extends OAuthToken {
     public static final String PROVIDER_NAME = 'google'
 
     String email
+    Map response
 
-    GoogleOAuthToken(Token scribeToken, email) {
+    GoogleOAuthToken(Token scribeToken, email, response) {
         super(scribeToken)
         this.email = email
         this.principal = email
+        this.response = response
     }
 
     String getSocialId() {
