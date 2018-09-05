@@ -42,15 +42,15 @@ public class GoogleApi20 extends DefaultApi20 {
             public Token extract(String response) {
                 Preconditions.checkEmptyString(response, "Response body is incorrect. Can't extract a token from an empty string");
 
-                Matcher matcher = Pattern.compile("\"access_token\" : \"([^&\"]+)\"").matcher(response);
+                Matcher matcher = Pattern.compile("\"access_token\"\\s*: \"([^&\"]+)\"").matcher(response);
                 if (matcher.find()) {
                     String token = OAuthEncoder.decode(matcher.group(1));
                     String refreshToken = "";
-                    Matcher refreshMatcher = Pattern.compile("\"refresh_token\" : \"([^&\"]+)\"").matcher(response);
+                    Matcher refreshMatcher = Pattern.compile("\"refresh_token\"\\s*: \"([^&\"]+)\"").matcher(response);
                     if (refreshMatcher.find())
                         refreshToken = OAuthEncoder.decode(refreshMatcher.group(1));
                     Date expiry = null;
-                    Matcher expiryMatcher = Pattern.compile("\"expires_in\" : ([^,&\"]+)").matcher(response);
+                    Matcher expiryMatcher = Pattern.compile("\"expires_in\"\\s*: ([^,&\"]+)").matcher(response);
                     if (expiryMatcher.find()) {
                         int lifeTime = Integer.parseInt(OAuthEncoder.decode(expiryMatcher.group(1)));
                         expiry = new Date(System.currentTimeMillis() + lifeTime * 1000);
